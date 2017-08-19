@@ -1,7 +1,7 @@
 # EdgeDebounceLite
 Just replace digitalRead() with debounce.pin()
 
-EdgeDebounce is a lightweight yet capable switch debouncer and EMF filter. It is also very fast. It can confirm that a switch is not bouncing within 90 microseconds, and return at most after 180 microseconds after bouncing or EMF disturbances end.
+EdgeDebounceLite is a lightweight yet capable switch debouncer and EMF filter. It is also very fast. It can confirm that a switch is not bouncing within 90 microseconds, and return at most after 180 microseconds after bouncing or EMF disturbances end.
 
 The algorithm was inpired by an article that can be found at: http://www.ganssle.com/debouncing.htm
 
