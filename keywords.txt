@@ -1,0 +1,4 @@
+EdgeDebounceLite	KEYWORD1
+pin	KEYWORD2
+getSensitivity	KEYWORD2
+setSensitivity	KEYWORD2
