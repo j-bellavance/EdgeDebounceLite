@@ -27,10 +27,10 @@ EdgeDebounceLite::EdgeDebounceLite() {}
 //Thanks to Jiggy-Ninja for the expression
 //-------------------------------------------------------
 void EdgeDebounceLite::setSensitivity(byte w) {
-	if (w >= 1 && w <= 32) {
-		MYsensitivity = w;
-		debounceDontCare = ~((1UL << w) - 1);
-	}
+  if (w >= 1 && w <= 32) {
+    MYsensitivity = w;
+    debounceDontCare = ~((1UL << w) - 1);
+  }
 }//setSensitivity----------------------------------------
 
  //getSensitivity==================================================================
