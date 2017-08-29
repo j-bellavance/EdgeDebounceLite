@@ -30,8 +30,8 @@ class EdgeDebounceLite {
     
   private:
     //Attributes
-		byte MYsensitivity = 16;                      //Current sensitivity (1..32)
-		unsigned long debounceDontCare = 0xffff0000;  //Don't care mask
+    byte MYsensitivity = 16;                      //Current sensitivity (1..32)
+    unsigned long debounceDontCare = 0xffff0000;  //Don't care mask
 };
 
 #endif;
