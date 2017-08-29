@@ -9,11 +9,10 @@
  *It is designed to be lightweight and very fast ( <90 microseconds 99% of the time )
  *PSEUDOCODE
  * 1) Repeat
- * 1)   Read the switch 16 times
+ * 1)   Read the switch n times (Between 1 and 32 times)
  * 2) Until all reads are identical
  * 3) Return the switch's status
  *    
- *The number of times the switch is repetitively read can be set between 1 and 32
 */
  
 #ifndef EdgeDebounceLite_h

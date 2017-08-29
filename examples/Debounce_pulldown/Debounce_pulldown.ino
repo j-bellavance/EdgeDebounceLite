@@ -11,17 +11,19 @@
  * 
 */
 
-#include <EdgeDebounceLite.h>
+#define BUTTON_PIN 6
+#define LED_PIN 13
 
+#include <EdgeDebounceLite.h>
 EdgeDebounceLite debounce;
 
 void setup() {
-  pinMode(6, INPUT);
-  pinMode(13, OUTPUT);
+  pinMode(BUTTON_PIN, INPUT);
+  pinMode(LED_PIN, OUTPUT);
 }
 
 void loop() {
-  if (debounce.pin(6)) digitalWrite(13, HIGH);
-  else                 digitalWrite(13, LOW);
+  if (debounce.pin(BUTTON_PIN)) digitalWrite(LED_PIN, HIGH);
+  else                          digitalWrite(LED_PIN, LOW);
 }
 

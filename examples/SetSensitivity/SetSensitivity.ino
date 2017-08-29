@@ -1,6 +1,8 @@
 /*
  * SetSensitivity.ino
  * By Jacques Bellavance, July 7 2017
+ * Released under: GNU General Public License v3.0
+ * 
  * Shows how to change the sensitivity of the Debounce Library
  * This sketch is for switches that uses the internal pullup resistor
  * Switch pin A : Ground
@@ -9,7 +11,8 @@
 
 #include <EdgeDebounceLite.h>
 
-#define BUTTON_PIN 2
+#define BUTTON_PIN 4
+#define LED_PIN 13
 
 //Create an instance of EdgeDebounceLite
 EdgeDebounceLite debounce;  
@@ -17,11 +20,11 @@ EdgeDebounceLite debounce;
 void setup() {
   debounce.setSensitivity(8);            //sensitivity defaults to 16. Now changed to 8
   pinMode(BUTTON_PIN, INPUT_PULLUP);
-  pinMode(13, OUTPUT);
+  pinMode(LED_PIN, OUTPUT);
 }
 
 void loop() {
-  if (!debounce.pin(BUTTON_PIN)) digitalWrite(13, HIGH);
-  else                           digitalWrite(13, LOW);
+  if (!debounce.pin(BUTTON_PIN)) digitalWrite(LED_PIN, HIGH);
+  else                           digitalWrite(LED_PIN, LOW);
 } 
 

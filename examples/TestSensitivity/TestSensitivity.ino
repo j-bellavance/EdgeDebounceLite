@@ -1,12 +1,14 @@
 /*
  * TestSensitivity.ino
  * By Jacques Bellavance, July 7 2017
- * 
+ * Released under: GNU General Public License v3.0
+ *  
  * To test what Sensitivity is best for a particular switch / application
  * Debug LED on pin 13 will light up when TEST_BUTTON is pressed
  * Pressing the MORE button will increase the sensitivity
  * Pressing the LESS button will decrease the sensitivity
  * The serial monitor will display the current sensitivity
+ * 
  * Uses the internal pullup resistors
  * Arduino pin 2 --- LESS button ---+---GND
  * Arduino pin 3 --- TEST button ---|
@@ -24,10 +26,10 @@ EdgeDebounceLite debounce;
 
 void setup() {
   Serial.begin(9600);
-  pinMode(2, INPUT_PULLUP);
-  pinMode(3, INPUT_PULLUP);
-  pinMode(4, INPUT_PULLUP);
-  pinMode(13, OUTPUT);
+  pinMode(LESS_PIN, INPUT_PULLUP);
+  pinMode(TEST_PIN, INPUT_PULLUP);
+  pinMode(MORE_PIN, INPUT_PULLUP);
+  pinMode(LED_PIN, OUTPUT);
 
   Serial.println(F("Begining testing..."));
   Serial.print(F("Sensitivity is now at: "));
@@ -37,18 +39,19 @@ void setup() {
 
 void loop() {
   if (!debounce.pin(MORE_PIN)) {
-    debounce.setSensitivity(debounce.getSensitivity() - 1);
+    debounce.setSensitivity(debounce.getSensitivity() + 1);
     Serial.print(F("Sensitivity is now at: "));
     Serial.println(debounce.getSensitivity());
     while (!debounce.pin(MORE_PIN)) {;}  //Wait for the button to be released
   }
   if (!debounce.pin(LESS_PIN)) {
-    debounce.setSensitivity(debounce.getSensitivity() + 1);
+    debounce.setSensitivity(debounce.getSensitivity() - 1);
     Serial.print(F("Sensitivity is now at: "));
     Serial.println(debounce.getSensitivity());
     while (!debounce.pin(LESS_PIN)) {;}  //Wait for the button to be released
   }
-  if (!debounce.pin(TEST_PIN)) digitalWrite(LED_PIN, HIGH); 
-  else                         digitalWrite(LED_PIN, LOW); 
+  //Place your test code here, using TEST_PIN
+  if (debounce.pin(TEST_PIN)) digitalWrite(LED_PIN, LOW); 
+  else                        digitalWrite(LED_PIN, HIGH); 
 }
 
