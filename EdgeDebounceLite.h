@@ -34,4 +34,4 @@ class EdgeDebounceLite {
     unsigned long debounceDontCare = 0xffff0000;  //Don't care mask
 };
 
-#endif;
+#endif
